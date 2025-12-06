@@ -1,13 +1,124 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-bg text-gray-100;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #3b82f6 #1a1f2e;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-accent-orange to-orange-600 text-white font-semibold py-3 px-6 rounded-xl shadow-dark-lg hover:shadow-dark-xl transform hover:-translate-y-0.5 transition-all duration-200 active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-dark-card text-gray-300 font-semibold py-3 px-6 rounded-xl shadow-dark-lg hover:bg-dark-hover border border-dark-border transform hover:-translate-y-0.5 transition-all duration-200 active:scale-95;
+  }
+  
+  .card {
+    @apply bg-dark-card rounded-2xl shadow-dark-lg hover:shadow-dark-xl transition-all duration-300 p-6 border border-dark-border;
+  }
+  
+  .card-highlight {
+    @apply bg-gradient-to-br from-dark-card to-dark-hover rounded-2xl shadow-dark-xl p-6 border border-accent-purple/30;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 bg-dark-bg border border-dark-border rounded-xl text-gray-100 placeholder-gray-500 focus:ring-2 focus:ring-accent-orange focus:border-transparent transition-all duration-200 outline-none;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-500/20 text-green-400 border border-green-500/30;
+  }
+  
+  .badge-warning {
+    @apply badge bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+  }
+  
+  .badge-danger {
+    @apply badge bg-red-500/20 text-red-400 border border-red-500/30;
+  }
+
+  .badge-info {
+    @apply badge bg-blue-500/20 text-blue-400 border border-blue-500/30;
+  }
+  
+  .alert {
+    @apply p-4 rounded-xl mb-4 border-l-4 bg-dark-card;
+  }
+  
+  .alert-info {
+    @apply alert border-blue-500 text-blue-300;
+  }
+  
+  .alert-success {
+    @apply alert border-green-500 text-green-300;
+  }
+  
+  .alert-warning {
+    @apply alert border-yellow-500 text-yellow-300;
+  }
+  
+  .alert-danger {
+    @apply alert border-red-500 text-red-300;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-gray-400 hover:text-white hover:bg-dark-hover transition-all duration-200 cursor-pointer;
+  }
+
+  .sidebar-link-active {
+    @apply sidebar-link bg-gradient-to-r from-accent-orange to-orange-600 text-white shadow-dark-lg;
+  }
+
+  .stat-card {
+    @apply bg-gradient-to-br p-6 rounded-2xl shadow-dark-lg text-white;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #3b82f6, #6366f1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #2563eb, #4f46e5);
+}
+
+/* Smooth transitions */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }

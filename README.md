@@ -1,6 +1,8 @@
-# Getting Started with Create React App
+# Smart Medication Assistant - MVP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A complete web application for smart medication management with OCR verification, voice assistant, and real-time adherence monitoring.
+
+Built with React.js, Firebase, Tesseract.js, and Web Speech API.
 
 ## Available Scripts
 
